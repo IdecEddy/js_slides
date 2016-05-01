@@ -52,82 +52,77 @@
                 height:100%;
                 background-color:yellow;
             }
-            #slide1.clicked
-            {
-                transition: width 2s; 
-                width: 0px;
-            }
-            #slide2.clicked
-            {
-                transition: width 2s;
-                width: 100%;
-            }
-            #slide2.clicked2
-            {
-                transition: width 2s;
-                width: 0px;
-            }
-            #slide1.clicked2
-            {
-                transition: width 2s;
-                width: 100%;
-            }
-            #slide1.clicked3
-            {
-                max-width:805px;
-                width:0%;
-                height:100%;
-                background-image: url("test1.jpg");
-            }
-            #slide2.clicked3
-            {
-                max-width:805px;
-                width:100%;
-                height:100%;
-                background-image: url("test1.jpg");
-            }
-
-
 
         </style>
 
         <script>
+            
+
             var top_slide = true;
-            function move_slide1(){
+            var animating = false;
+
+      
+            function move_slide1()
+            {
                 console.log("2b1");
                 $('#slide2').insertBefore('#slide1');
-                $('#slide2').removeClass('clicked');
-                $('#slide1').removeClass('clicked');
-                $("#slide1").toggleClass('clicked3');
-                $("#slide2").toggleClass("clicked3");
-
             }
-            function move_slide2(){
+            
+            function move_slide2()
+            {
                 console.log("1B2");
                 $('#slide1').insertBefore('#slide2');
-                $('#slide2').removeClass('clicked2');
-                $('#slide1').removeClass('clicked2');
-
             }
 
-            $(document).ready(function() {
+            $(document).ready(function(){
                 $('#next_slide').on('click',function(e){
-                    if(top_slide == true){
-                        $("#slide1").toggleClass('clicked');
-                        $("#slide2").toggleClass("clicked");
-                        window.setTimeout(move_slide1, 2000);
+                    if(animating === true) { return;} 
+                    animating = true;
+                        
+                    if(top_slide === true){
+                        
+                        $('#slide1').animate({width:"0%"},2000, function(){
+                            animating = false;
+                            move_slide1();           
+                        });
+                        $('#slide2').animate({width:"100%"}, 2000, function(){
+                            animating = false;
+                        });
                         top_slide = false;
                     }
                     else{
-                        $('#slide2').removeClass('clicked3');
-                        $('#slide1').removeClass('clicked3');
-                        $("#slide1").toggleClass('clicked2');
-                        $("#slide2").toggleClass("clicked2");
-                        window.setTimeout(move_slide2, 2000);
+                        $('#slide2').animate({width:"0%"}, 2000, function(){
+                            animating = false;
+                            move_slide2();           
+                        });
+                        $('#slide1').animate({width:"100%"}, 2000, function(){
+                            animating = false;
+                        });
                         top_slide = true;
-                    } 
+                    }
                 });
             });
+             
+
+
+                  
+
+                            
+                           
+                        //$("#slide1").toggleClass('clicked');
+                        //$("#slide2").toggleClass("clicked");
+                        //window.setTimeout(move_slide1, 2000);
+                   // }
+                   // else{
+                     //   $('#slide2').removeClass('clicked3');
+                      //  $('#slide1').removeClass('clicked3');
+                       // $("#slide1").toggleClass('clicked2');
+                       // $("#slide2").toggleClass("clicked2");
+                       // window.setTimeout(move_slide2, 2000);
+                       // top_slide = true;
+                       // } 
+               // });
+           /// });
 
 
         </script>
