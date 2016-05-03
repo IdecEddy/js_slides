@@ -81,50 +81,56 @@
                         
                     if(top_slide === true){
                         
-                        $('#slide1').animate({width:"0%"},2000, function(){
+                        $('#slide1').animate({width:"0%"},1000, function(){
                             animating = false;
                             move_slide1();           
                         });
-                        $('#slide2').animate({width:"100%"}, 2000, function(){
+                        $('#slide2').animate({width:"100%"}, 1000, function(){
                             animating = false;
                         });
                         top_slide = false;
                     }
                     else{
-                        $('#slide2').animate({width:"0%"}, 2000, function(){
+                        $('#slide2').animate({width:"0%"}, 1000, function(){
                             animating = false;
                             move_slide2();           
                         });
-                        $('#slide1').animate({width:"100%"}, 2000, function(){
+                        $('#slide1').animate({width:"100%"}, 1000, function(){
                             animating = false;
                         });
                         top_slide = true;
                     }
+                    console.log("animating: " + animating + "\n top_slide: " + top_slide); 
+
                 });
+                $("#last_slide").on("click", function(e){ 
+                    if(animating === true){ return;}
+                    animating = true;
+ 
+                    if(top_slide === true){
+                        move_slide1();
+                        $("#slide2").animate({width:"100%"},1000, function(){
+                            animating = false;
+                        });
+                        $("#slide1").animate({width:"0%"},1000, function(){
+                            animating = false;
+                        });
+                        top_slide = false;
+                    }
+                    else{
+                        move_slide2();
+                        $("#slide2").animate({width:"0%"},1000, function(){
+                            animating = false;                                  
+                        });
+                        $("#slide1").animate({width:"100%"},1000, function(){
+                            animating = false;                                                    
+                        });
+                        top_slide = true;
+                    }   
+                    console.log("animating: " + animating + "\n top_slide: " + top_slide); 
+                });
+		        console.log("animating: " + animating + "\n top_slide: " + top_slide); 
             });
-             
-
-
-                  
-
-                            
-                           
-                        //$("#slide1").toggleClass('clicked');
-                        //$("#slide2").toggleClass("clicked");
-                        //window.setTimeout(move_slide1, 2000);
-                   // }
-                   // else{
-                     //   $('#slide2').removeClass('clicked3');
-                      //  $('#slide1').removeClass('clicked3');
-                       // $("#slide1").toggleClass('clicked2');
-                       // $("#slide2").toggleClass("clicked2");
-                       // window.setTimeout(move_slide2, 2000);
-                       // top_slide = true;
-                       // } 
-               // });
-           /// });
-
-
         </script>
     </head>
     <body>
