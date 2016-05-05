@@ -119,7 +119,6 @@
                     } else if (images_array_count <= 0){
                         images_array_count = images_array_length;
                     }
-                    console.log("images_array_count: " + images_array_count + " images_array_length: " + images_array_length );
                     if(top_slide === true){
                         move_slide1();
                         $("#slide2").css('background-image', 'url(' + images_array[images_array_count] + ')');
