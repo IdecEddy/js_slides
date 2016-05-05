@@ -64,13 +64,11 @@
       
             function move_slide1()
             {
-                console.log("2b1");
                 $('#slide2').insertBefore('#slide1');
             }
             
             function move_slide2()
             {
-                console.log("1B2");
                 $('#slide1').insertBefore('#slide2');
             }
 
@@ -100,8 +98,6 @@
                         });
                         top_slide = true;
                     }
-                    console.log("animating: " + animating + "\n top_slide: " + top_slide); 
-
                 });
                 $("#last_slide").on("click", function(e){ 
                     if(animating === true){ return;}
@@ -127,9 +123,7 @@
                         });
                         top_slide = true;
                     }   
-                    console.log("animating: " + animating + "\n top_slide: " + top_slide); 
                 });
-		        console.log("animating: " + animating + "\n top_slide: " + top_slide); 
             });
         </script>
     </head>
