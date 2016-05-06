@@ -1,0 +1,55 @@
+body
+{
+    margin:0px;
+}
+#main
+{
+    display:flex;
+    justify-content:center;
+
+}
+#slide_show
+{
+    max-width:843px;
+    min-width:843px;
+    background-color:gray;
+    border:1px solid black;
+    width:50%;
+    height:350px;
+    margin-top:50px;
+    display:flex;
+
+}
+#slide1
+{
+    max-width:805px;
+    width:100%;
+    height:100%;
+    background-image: url("test1.jpg");
+
+}
+#slide2
+{
+    max-width:805px;
+    width:0%;
+    height:100%;
+    background-image: url("test1.jpg");
+
+}
+
+#slid_container
+{
+    display:flex;
+    width:100%;
+    height:100%;
+    background-color:gray;
+
+}
+#next_slide, #last_slide
+{
+    opacity:.5;
+    width: 20px;
+    height:100%;
+    background-color:#353534;
+
+}
