@@ -49,7 +49,7 @@
                 opacity:.5;
                 width: 20px;
                 height:100%;
-                background-color:yellow;
+                background-color:#353534;
             }
 
         </style>
@@ -72,7 +72,7 @@
             }
 
             $(document).ready(function(){
-                $('#next_slide').on('click',function(e){
+                $('#last_slide').on('click',function(e){
                     // if we are in the middel of a transition dont start another one.
                     if(animating === true) { return;} 
                     animating = true;
@@ -109,7 +109,7 @@
                     }
                 });
             
-                $("#last_slide").on("click", function(e){ 
+                $("#next_slide").on("click", function(e){ 
                     //basicly the same as above but in reverse for the back button.
                     if(animating === true){ return;}
                     animating = true;
